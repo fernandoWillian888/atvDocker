@@ -19,7 +19,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.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 }}
+          password: ${{ secrets.docker_test }}
 
       # Construir a imagem usando o nome específico do Dockerfile
       - name: Build Docker Image
