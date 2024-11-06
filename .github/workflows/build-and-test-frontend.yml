@@ -23,8 +23,8 @@ jobs:
 
       # Construir a imagem usando o nome específico do Dockerfile
       - name: Build Docker Image
-        run: docker build -t ghcr.io/${{ https://github.com/fernandoWillian888/atvDocker }}/meu-app:latest -f dockerfileFrontend .
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/meu-app:latest -f dockerfileFrontend .
 
       # Fazer o push da imagem
       - name: Push Docker Image
-        run: docker push ghcr.io/${{ https://github.com/fernandoWillian888/atvDocker }}/meu-app:latest
+        run: docker push ghcr.io/${{ github.repository_owner }}/meu-app:latest
