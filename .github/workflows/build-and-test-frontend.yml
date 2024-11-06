@@ -1,13 +1,11 @@
-name: Test Docker Build and Run
+name: Build and Push Docker Image
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
-  docker-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,10 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Construir a imagem Docker
-      - name: Build Docker Image
-        run: docker build -t my-app:latest .
+      # Login no GitHub Container Registry
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ fernandoWillian888 }}
+          password: ${{ secrets.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 }}
 
-      # Testar se a imagem foi criada com sucesso
-      - name: Test Docker Image
-        run: docker run --rm -p 3000:3000 my-app:latest npm start
+      # Construir a imagem usando o nome específico do Dockerfile
+      - name: Build Docker Image
+        run: docker build -t ghcr.io/${{ https://github.com/fernandoWillian888/atvDocker }}/meu-app:latest -f dockerfileFrontend .
+
+      # Fazer o push da imagem
+      - name: Push Docker Image
+        run: docker push ghcr.io/${{ https://github.com/fernandoWillian888/atvDocker }}/meu-app:latest
