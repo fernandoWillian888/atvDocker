@@ -1,0 +1,23 @@
+{
+    "version": "1.0",
+    "build": {
+      "from": "node:14-alpine",
+      "workdir": "/atvDocker",
+      "copy": [
+        {
+          "source": "package_front.json",
+          "destination": "./"
+        },
+        {
+          "source": ".",
+          "destination": "."
+        }
+      ],
+      "run": [
+        "npm run build"
+      ],
+      "expose": 3000,
+      "cmd": ["npm", "start"]
+    }
+  }
+  
