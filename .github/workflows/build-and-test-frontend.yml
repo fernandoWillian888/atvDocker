@@ -18,8 +18,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.docker_test }}
+          username: ${{github.actor}}
+          password: ${{secrets.docker_test}}
 
       # Construir a imagem usando o nome específico do Dockerfile
       - name: Build Docker Image
