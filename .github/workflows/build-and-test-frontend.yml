@@ -1,0 +1,24 @@
+name: Test Docker Build and Run
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Construir a imagem Docker
+      - name: Build Docker Image
+        run: docker build -t my-app:latest .
+
+      # Testar se a imagem foi criada com sucesso
+      - name: Test Docker Image
+        run: docker run --rm -p 3000:3000 my-app:latest npm start
