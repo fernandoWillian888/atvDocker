@@ -8,6 +8,9 @@ WORKDIR /atvdocker
 COPY ./front/package.json ./front/package-lock.json ./
 RUN npm install  
 
+# Verifique as dependências instaladas
+RUN npm list --depth=0
+
 # Cópia de Código Fonte - com container criado
 COPY . .
 
