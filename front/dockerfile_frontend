@@ -5,8 +5,7 @@ FROM node:14-alpine
 WORKDIR /atvdocker
 
 # Instalação de dependências
-COPY package*.json ./ 
-COPY package-lock.json ./  
+COPY package*.json package-lock ./ 
 RUN npm install  
 
 # Cópia de Código Fonte - com container criado
