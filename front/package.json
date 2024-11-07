@@ -4,7 +4,7 @@
   "description": "Aplicação de exemplo com Docker e GitHub Actions",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
     "build": "echo 'Build step executed!'"
   },
   "dependencies": {
