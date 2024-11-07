@@ -6,7 +6,7 @@ WORKDIR /atvdocker
 
 # Instalação de dependências
 COPY ./front/package.json ./front/package-lock.json ./
-RUN npm install  
+RUN npm install --force
 
 # Verifique as dependências instaladas
 RUN npm list --depth=0
