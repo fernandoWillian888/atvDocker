@@ -2,7 +2,7 @@
   "name": "atvdocker",
   "version": "1.0.0",
   "description": "Aplicação de exemplo com Docker e GitHub Actions",
-  "main": "dockerfile_frontend",
+  "main": "dockerfile_bd",
   "scripts": {
     "start": "node index.js"
   },
