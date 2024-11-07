@@ -1,14 +1,24 @@
 # Base da Linguagem
-FROM node:postgres:13
+FROM postgres:13
+
 # Definição do Diretório-Pasta do Projeto
-WORKDIR /atvDocker
+WORKDIR /atvdocker
+
 # Instalação de dependências
-COPY package.json ./
-# Cópia de Código Fonte - com container criado
-COPY . .
+COPY ./bancodados/package.json ./bancodados/package-lock.json ./
+RUN npm install --force
+
+# Verifique as dependências instaladas
+RUN npm list --depth=0
+
 # Compilar o projeto
 RUN npm run build
+
 # Identificar a porta 
-EXPOSE 8080
-#Comandos de Inicialização
+EXPOSE 3306
+
+# Cópia de Código Fonte - com container criado
+COPY . .
+
+# Comandos de Inicialização
 CMD ["npm", "start"]
